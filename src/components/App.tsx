@@ -9,7 +9,6 @@ function App() {
       <div>
         <Header/>
       </div>
-      <h1>Dumpling Client: App</h1>
       <div className="card">
         <DumplingControl/>
       </div>
