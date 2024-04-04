@@ -17,7 +17,7 @@ const DumplingControl = () => {
   const [dumplings, setDumplings] = useState<DumplingList[]>([]);
   const [selectedDumpling, setSelectedDumpling] = useState(null);
   // if selDum == null, do nothing. else: <DumplingDetail prop-selectedDumpling/>
-  //const [visibleState, setVisibleState] = useState('list');
+  
   //bool isVis? terneary in return to render comp or render null
 
   useEffect(() => {
@@ -32,22 +32,25 @@ const DumplingControl = () => {
     fetchDumplings();
   }, []);
 
-
-  const handleDetailClick = async (id) => {
+  const handleDetailClick = async (id: number) => {
     try {
       const dumpling = await getDumplingById(id);
+      console.log('dumpling data', dumpling);
       setSelectedDumpling(dumpling);
     } catch (error) {
       console.error(`Error: ${error}`);
     }
   }
+  useEffect(() => {
+    console.log('selDeump', selectedDumpling);
+  }, [selectedDumpling]);
   
   return (
     <>
       {dumplings === null && (
         <div><h3>No dumplings have been created yet..</h3></div>
       )}
-      {dumplings != null && (
+      {!selectedDumpling && dumplings != null && (
         <div>
           <h2>Dumplings</h2>
           <hr />
@@ -57,6 +60,11 @@ const DumplingControl = () => {
           />
         </div>
       )}
+
+      {selectedDumpling && <DumplingDetail dumpling={selectedDumpling} />}  
+
+
+
     </>
   );
 }

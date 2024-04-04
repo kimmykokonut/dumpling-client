@@ -27,7 +27,7 @@ export async function getDumplingById(id: number) {
     });
     if (response.ok) {
       const responseData = await response.json();
-      return responseData.results;
+      return responseData;
     } else {
       throw new Error('Failed to fetch');
     }
