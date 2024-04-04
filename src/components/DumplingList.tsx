@@ -20,7 +20,7 @@ const DumplingList: React.FC<DumplingListProps> = ({ dumplings, onDumplingClick 
             name={dumpling.name}
             origin={dumpling.origin}
             //tags={dumpling.tags.join(', ')}
-            whenDumplingClicked={onDumplingClick}
+            whenDumplingClicked={() => onDumplingClick(dumpling.id)}
             id={dumpling.id}
           //origin&tag will be a LIST
           // origin={dumpling.origin}
