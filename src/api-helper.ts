@@ -121,7 +121,7 @@ export async function getTags() {
     });
     if (response.ok) {
       const responseData = await response.json();
-      return responseData; //.results? it is [] response
+      return responseData; 
     } else {
       throw new Error('Failed to fetch');
     }
@@ -170,4 +170,22 @@ export async function signIn(userSignInData: UserSignInData) {
     throw error;
   }
 }
-// 062880d258c3e552002e79a828ec41e326a5b668
+export async function getTagById(id: number) {
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/tags/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    if (response.ok) {
+      const responseData = await response.json();
+      return responseData.name;
+    } else {
+      throw new Error('Failed to fetch');
+    }
+  } catch (error) {
+    console.error('An error occurred:', error);
+    throw error;
+  }
+}

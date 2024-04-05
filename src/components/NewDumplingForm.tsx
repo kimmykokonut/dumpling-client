@@ -1,11 +1,13 @@
 import ReusableForm from "./ReusableForm";
 import { createDumpling } from "../api-helper";
+import { useNavigate } from "react-router-dom";
 
 // interface NewDumplingProps {
 //   onNewDumplingCreation: //function
 // }
 
 const NewDumplingForm = () => {
+  const navigate = useNavigate();
 
   const handleNewDumplingForm = async(e : React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,7 +25,8 @@ const NewDumplingForm = () => {
     try{
       const token = localStorage.getItem('token') as string;
       await createDumpling(dumpling, token);
-      alert('Dumpling created successfully');
+      console.log(dumpling);
+      navigate('/dumplings/');
     } catch(error) {
       console.error('Failed to create dumpling:', error);
     }
