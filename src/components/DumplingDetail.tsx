@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import { getOriginById } from "../api-helper";
+
 interface DumplingDetailProps {
   dumpling: {
     id: number;
@@ -10,11 +13,19 @@ interface DumplingDetailProps {
 }
 
 const DumplingDetail: React.FC<DumplingDetailProps> = ({dumpling}) => {
+  const [origin, setOrigin] = useState(null);
+
+  useEffect(() => {
+    getOriginById(dumpling.origin)
+      .then(setOrigin)
+      .catch(console.error);
+  }, [dumpling.origin]);
+
   return (
     <div>
       <h2>{dumpling.name}</h2>
       <p>Description: {dumpling.description}</p>
-      <p>Country: {dumpling.origin}</p>
+      <p>Country: {origin ? origin : 'Loading..'}</p>
       {/* <p>Tags: {dumpling.tags.join(', ')}</p> */}
       <p>Added by: {dumpling.owner.username}</p>
     </div>

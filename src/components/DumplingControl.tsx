@@ -35,15 +35,14 @@ const DumplingControl = () => {
   const handleDetailClick = async (id: number) => {
     try {
       const dumpling = await getDumplingById(id);
-      console.log('dumpling data', dumpling);
       setSelectedDumpling(dumpling);
     } catch (error) {
       console.error(`Error: ${error}`);
     }
   }
-  useEffect(() => {
-    console.log('selDeump', selectedDumpling);
-  }, [selectedDumpling]);
+  // useEffect(() => {
+  //   console.log('selDeump', selectedDumpling);
+  // }, [selectedDumpling]);
   
   return (
     <>

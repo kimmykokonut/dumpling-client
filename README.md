@@ -18,12 +18,12 @@ Detail:
   * change origin from id number to name property (api call, add new state)
   * add tags property (unsure of how response formatted)
 Create:
-  * add form, render form
+  * add form, render form (make sure user is logged)
 Edit:
-  * add form, redirect to detail page
+  * add form, redirect to detail page (log in permission?)
 Delete:
-  * button. redirect to list/index page
+  * button. redirect to list/index page (log in permission?)
 User:
-  * add registration/login/logoutfunctionality
+  * add registration/login/logoutfunctionality (have conf on page)
 Style
 Tags/Origin: Need own Components/Controller to be able to add tags/origin data...
