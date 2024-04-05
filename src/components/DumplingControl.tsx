@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import Auth from "./Auth";
 import DumplingList from "./DumplingList";
 import DumplingDetail from "./DumplingDetail";
 // import EditDumplingForm from "./EditDumplingForm";
-// import NewDumplingForm from "./NewDumplingForm";
+import NewDumplingForm from "./NewDumplingForm";
 import { getDumplings, getDumplingById } from '../api-helper';
 
 interface DumplingList {
@@ -16,9 +18,7 @@ const DumplingControl = () => {
   // const [error, setError] = useState(null);
   const [dumplings, setDumplings] = useState<DumplingList[]>([]);
   const [selectedDumpling, setSelectedDumpling] = useState(null);
-  // if selDum == null, do nothing. else: <DumplingDetail prop-selectedDumpling/>
-  
-  //bool isVis? terneary in return to render comp or render null
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDumplings = async () => {
@@ -36,6 +36,7 @@ const DumplingControl = () => {
     try {
       const dumpling = await getDumplingById(id);
       setSelectedDumpling(dumpling);
+      navigate(`/dumplings/${id}`);
     } catch (error) {
       console.error(`Error: ${error}`);
     }
@@ -46,7 +47,17 @@ const DumplingControl = () => {
   
   return (
     <>
-      {dumplings === null && (
+    <Routes>
+      <Route path='/' element={<Auth />}/>
+      <Route 
+        path='/create-dumpling'
+        element={<NewDumplingForm />}/>
+      <Route path="/dumplings/:id"
+          element={selectedDumpling ? <DumplingDetail dumpling={selectedDumpling} />: null} />
+      <Route path="/dumplings" 
+            element={<DumplingList dumplings={dumplings} onDumplingClick={handleDetailClick} />} />
+    </Routes>
+      {/* {dumplings === null && (
         <div><h3>No dumplings have been created yet..</h3></div>
       )}
       {!selectedDumpling && dumplings != null && (
@@ -62,7 +73,7 @@ const DumplingControl = () => {
 
       {selectedDumpling && <DumplingDetail dumpling={selectedDumpling} />}  
 
-
+ */}
 
     </>
   );

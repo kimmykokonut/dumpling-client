@@ -27,7 +27,9 @@ const DumplingList: React.FC<DumplingListProps> = ({ dumplings, onDumplingClick 
           // tag={dumpling.tag}
           />
       ))}
+      <hr />
     </div>
+    
   );
 }
 export default DumplingList;

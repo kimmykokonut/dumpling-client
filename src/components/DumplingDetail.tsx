@@ -28,6 +28,9 @@ const DumplingDetail: React.FC<DumplingDetailProps> = ({dumpling}) => {
       <p>Country: {origin ? origin : 'Loading..'}</p>
       {/* <p>Tags: {dumpling.tags.join(', ')}</p> */}
       <p>Added by: {dumpling.owner.username}</p>
+      {/* only show if logged in is creator */}
+      <button>Edit details</button>
+      <button>Delete this dumpling</button>
     </div>
   );
 }

@@ -1,10 +1,7 @@
 interface DumplingProps {
   id: number;
   name: string;
-  //description: string;
   origin: number;
-  //tags: string; 
-  //owner: string;
   whenDumplingClicked: (id: number) => void;
 }
 
