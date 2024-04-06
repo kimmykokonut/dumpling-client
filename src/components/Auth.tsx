@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { signUp, signIn } from "../api-helper";
+import { signUp, signIn, signOut } from "../api-helper";
 import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
@@ -10,6 +10,7 @@ const Auth = () => {
   const [message, setMessage] = useState('');
   const [userIn, setUserIn] = useState('');
   const [pwIn, setPwIn] = useState('');
+  const [logoutMsg, setLogoutMessage] = useState<string>('');
 
   const navigate = useNavigate();
 
@@ -43,6 +44,7 @@ const Auth = () => {
 
     const response = await signIn(userSignInData);
     setToken(response.token)
+    console.log(response.token);
     localStorage.setItem('token', response.token);
     console.log(token, username, response.token);
     setUserIn('');
@@ -50,12 +52,18 @@ const Auth = () => {
 
     navigate('/dumplings/');
   }
-  // const handleSignOut = async (e: React.MouseEvent<HTMLButtonElement>) => {
-  //   e.preventDefault();
-  //   //apicall to delete token
-  //   setToken('');
-  //   localStorage.removeItem('token');
-  // }
+  const handleSignOut = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    try {
+      const token = localStorage.getItem('token') || '';
+      const message = await signOut(token);
+      setLogoutMessage(message);
+      setToken('');
+      localStorage.removeItem('token');
+    } catch (error) {
+      console.error('An error occurred:', error)
+    }
+  };
 
   return (
     <div>
@@ -83,11 +91,10 @@ const Auth = () => {
       </form>
       <p>Don't have an account? <a href="">Sign up here</a></p>
       <hr />
-      {/* <div id="signOut">
-        <form action="POST" onSubmit={handleSignOut}>
-          <button type="submit">Log Out</button>
-        </form>
-      </div> */}
+      <div id="signOut">
+          <button onClick={handleSignOut}>Log Out</button>
+        <p>{logoutMsg}</p>
+      </div>
     </div>
   );
 }

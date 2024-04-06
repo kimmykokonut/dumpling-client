@@ -8,16 +8,16 @@ WIP
 ### React Component Diagram
 ![Component Diagram](./src/assets/diagram.drawio.svg)
 
-Done:
-render dumpling list
-render dumpling detail
-render header (add react router for home/list links?)
+Bugs:
+* On dumpling detail component, issue rendering Tag data.  The tagData is correct (and array of strings) but it is not rendering correctly on the Detail page.
+
 
 Todo:
 Detail: 
-  * add tags property (unsure of how response formatted)
+  * add tags property (issue with async/useeffect/state)
 Create:
-  * render form (make sure user is logged)
+  * render form (make sure user is logged in)
+  * check token first!
 Edit:
   * add form, redirect to detail page (log in permission?)
 Delete:

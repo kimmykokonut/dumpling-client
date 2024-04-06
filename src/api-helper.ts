@@ -189,3 +189,25 @@ export async function getTagById(id: number) {
     throw error;
   }
 }
+export async function signOut(token: string) {
+  console.log(token);
+  try {
+    const response = await fetch('http://127.0.0.1:8000/logout/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Token ${token}`
+      },
+      // body: JSON.stringify(userSignInData),
+    });
+    if (response.ok) {
+      const responseData = await response.json();
+      return responseData;
+    } else {
+      throw new Error('Failed to fetch');
+    }
+  } catch (error) {
+    console.error('An error occurred:', error);
+    throw error;
+  }
+}
