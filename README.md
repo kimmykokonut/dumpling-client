@@ -3,10 +3,15 @@ _by Kim Robinson_
 
 #### A React application to act as a client for my [Dumpling API](https://github.com/kimmykokonut/dumpling-api), built with Django
 
+![Unstyled Home Page](./src/assets/images/signin.png)
+
 A user can:
 - Register, log in, log out
 - See the list of dumplings and dumpling details
 - Create a new dumpling if signed in with active token
+
+![Wip Detail Page](./src/assets/images/detail.png)
+
 
 ### React Component Diagram
 ![Component Diagram](./src/assets/diagram.drawio.svg)
