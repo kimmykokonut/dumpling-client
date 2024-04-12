@@ -1,6 +1,7 @@
 # Dumpling Truck Client
 _by Kim Robinson_
 [Hosted on Netlify](https://dumpling-atlas.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/96a42704-52ff-4654-9ef7-1afdd650ce20/deploy-status)](https://app.netlify.com/sites/dumpling-atlas/deploys)
 
 #### A React application to act as a client for my [Dumpling API](https://github.com/kimmykokonut/dumpling-api), built with Django
 
