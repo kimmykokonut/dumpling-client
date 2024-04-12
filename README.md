@@ -1,5 +1,6 @@
 # Dumpling Truck Client
 _by Kim Robinson_
+[Hosted on Netlify](https://dumpling-atlas.netlify.app/)
 
 #### A React application to act as a client for my [Dumpling API](https://github.com/kimmykokonut/dumpling-api), built with Django
 
@@ -21,7 +22,8 @@ Bugs:
 
 Stretch Goals:
 User:
-  * user can register,login/out. i want it to show in the header who is logged in or offer a signin. (issue as header is outside of state component DumplingControl)
+  * user can register,login/out. i want it to show in the header who is logged in or offer a signin. (issue as header is outside of state component DumplingControl). 
+  (currently read access regardless of signin. user needs to be logged in to create-desired. but need to build out now that it's hosted to test crud for user)
   * Update login page to show sign in only, then they can route to register if needed. once user signed in, only show logout button.
 Detail: 
   * add tags property (issue with async/useeffect/state)
