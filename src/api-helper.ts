@@ -16,7 +16,7 @@ export interface UserSignInData {
 
 export async function getDumplings() {
   try {
-    const response = await fetch('http://127.0.0.1:8000/dumplings/', {
+    const response = await fetch('https://dumpling-api.onrender.com/dumplings/', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ export async function getDumplings() {
 }
 export async function getDumplingById(id: number) {
   try {
-    const response = await fetch(`http://127.0.0.1:8000/dumplings/${id}`, {
+    const response = await fetch(`https://dumpling-api.onrender.com/dumplings/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ export async function getDumplingById(id: number) {
 }
 export async function getOriginById(id: number) {
   try {
-    const response = await fetch(`http://127.0.0.1:8000/origins/${id}`, {
+    const response = await fetch(`https://dumpling-api.onrender.com/origins/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ export async function getOriginById(id: number) {
 }
 export async function createDumpling(dumpling: Dumpling, token: string) {
   try {
-    const response = await fetch('http://127.0.0.1:8000/dumplings/', {
+    const response = await fetch('https://dumpling-api.onrender.com/dumplings/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ export async function createDumpling(dumpling: Dumpling, token: string) {
 }
 export async function getOrigins() {
   try {
-    const response = await fetch('http://127.0.0.1:8000/origins/', {
+    const response = await fetch('https://dumpling-api.onrender.com/origins/', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -113,7 +113,7 @@ export async function getOrigins() {
 }
 export async function getTags() {
   try {
-    const response = await fetch('http://127.0.0.1:8000/tags/', {
+    const response = await fetch('https://dumpling-api.onrender.com/tags/', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -132,7 +132,7 @@ export async function getTags() {
 }
 export async function signUp(userData: UserData) {
   try {
-    const response = await fetch('http://127.0.0.1:8000/signup/', {
+    const response = await fetch('https://dumpling-api.onrender.com/signup/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -152,7 +152,7 @@ export async function signUp(userData: UserData) {
 }
 export async function signIn(userSignInData: UserSignInData) {
   try {
-    const response = await fetch('http://127.0.0.1:8000/login/', {
+    const response = await fetch('https://dumpling-api.onrender.com/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -172,7 +172,7 @@ export async function signIn(userSignInData: UserSignInData) {
 }
 export async function getTagById(id: number) {
   try {
-    const response = await fetch(`http://127.0.0.1:8000/tags/${id}`, {
+    const response = await fetch(`https://dumpling-api.onrender.com/tags/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -192,7 +192,7 @@ export async function getTagById(id: number) {
 export async function signOut(token: string) {
   console.log(token);
   try {
-    const response = await fetch('http://127.0.0.1:8000/logout/', {
+    const response = await fetch('https://dumpling-api.onrender.com/logout/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
